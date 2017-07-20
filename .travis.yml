@@ -3,6 +3,13 @@ language: generic
 dist: trusty
 sudo: required
 
+services:
+  - docker
+
+
+before_install:
+  - docker pull agi20dla/cpp-build
+  - docker ps -a
 
 script:
   - echo "*** Test ***"
