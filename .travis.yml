@@ -12,4 +12,4 @@ before_install:
   - docker ps -a
 
 script:
-  - docker run -c /bin/bash -c 'echo ls'
+  - docker run /bin/bash -c "ls"
