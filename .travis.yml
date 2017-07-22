@@ -12,4 +12,4 @@ before_install:
   - docker ps -a
 
 script:
-  - docker run /bin/bash -c "ls"
+  - docker run agi20dla/cpp-build /bin/bash -c "ls"
