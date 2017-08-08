@@ -1,6 +1,7 @@
 language: generic
 
 dist: trusty
+sudo: required
 
 env:
   global:
@@ -8,18 +9,18 @@ env:
 
 cache:
     directories:
-        - ${DEPENDENCY_DIR}
+        - ${DEPENDENCY_DIR}/gtest
 
 install:
     - mkdir -p "${DEPENDENCY_DIR}" && cd "${DEPENDENCY_DIR}"
     - |
-        if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/cmake)" ]]; then
-          CMAKE_URL="https://cmake.org/files/v3.6/cmake-3.6.2-Linux-x86_64.tar.gz"
-          mkdir -p cmake && travis_retry wget --no-check-certificate --quiet -O - "${CMAKE_URL}" | tar --strip-components=1 -xz -C cmake
+        if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/gtest)" ]]; then
+          GTEST_URL="https://github.com/google/googletest/archive/master.tar.gz"
+          mkdir -p gtest && travis_retry wget --no-check-certificate --quiet -O - "${GTEST_URL}" | tar --strip-components=1 -xz -C gtest
         fi
-        export PATH="${DEPENDENCY_DIR}/cmake/bin:${PATH}"
-
+        ls gtest
 
 
 script:
-  - cmake --version
+  - pwd
+  - ls
