@@ -18,10 +18,9 @@ install:
           GTEST_URL="https://github.com/google/googletest/archive/master.tar.gz"
           mkdir -p gtest && travis_retry wget --no-check-certificate --quiet -O - "${GTEST_URL}" | tar --strip-components=1 -xz -C gtest
         fi
-        ls
-        ls gtest
 
 
 script:
   - pwd
   - ls
+  - ls gtest
