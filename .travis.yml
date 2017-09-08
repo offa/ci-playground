@@ -13,9 +13,8 @@ matrix:
             - g++-7
           sources: &sources
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise
-            - llvm-toolchain-precise-3.9
-            - llvm-toolchain-precise-3.8
+            - llvm-toolchain-trusty
+            - llvm-toolchain-trusty-3.9
             - llvm-toolchain-trusty-4.0
             - llvm-toolchain-trusty-5.0
     - env: CXX=g++-6 CC=gcc-6
