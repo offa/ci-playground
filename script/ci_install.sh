@@ -21,6 +21,7 @@ if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/llvm-source)" ]]; then
     fi
 
     mkdir llvm-build && cd llvm-build
+
     cmake -DCMAKE_C_COMPILER=${CC} \
             -DCMAKE_CXX_COMPILER=${CXX} \
             -DCMAKE_BUILD_TYPE=RelWithDebInfo \
