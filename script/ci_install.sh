@@ -20,7 +20,7 @@ if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/llvm-source)" ]]; then
       export BUILD_32_BITS=OFF && echo disabling 32 bit build
     fi
 
-    mkdir llvm-build && cd llvm-build
+    mkdir build && cd build
 
     cmake -DCMAKE_C_COMPILER=${CC} \
             -DCMAKE_CXX_COMPILER=${CXX} \
