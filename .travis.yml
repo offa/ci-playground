@@ -22,6 +22,7 @@ matrix:
           packages:
             - clang-5.0
             - libc++-dev
+            - libc++
           sources: *sources
 
 script:
