@@ -15,14 +15,14 @@ matrix:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty
             - llvm-toolchain-trusty-5.0
-            - sourceline: 'ppa:anthony-justsoftwaresolutions/libcxx'
+            #- sourceline: 'ppa:anthony-justsoftwaresolutions/libcxx'
     - env: CXX=clang++-5.0 CC=clang-5.0
       addons:
         apt:
           packages:
             - clang-5.0
             - libc++-dev
-            - libc++
+            #- libc++
           sources: *sources
 
 script:
