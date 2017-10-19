@@ -8,15 +8,14 @@ curl -sSL https://cmake.org/files/v3.8/cmake-3.8.2-Linux-x86_64.sh -o install-cm
 chmod +x install-cmake.sh
 sudo ./install-cmake.sh --prefix=/usr/local --skip-license
 
-if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/llvm-source)" ]]; then
 
-    # Checkout LLVM sources
+# Install Libc++
+if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/llvm-source)" ]]; then
     LLVM_RELEASE=release_50
     git clone --depth=1 -b ${LLVM_RELEASE} https://github.com/llvm-mirror/llvm.git llvm-source
     git clone --depth=1 -b ${LLVM_RELEASE} https://github.com/llvm-mirror/libcxx.git llvm-source/projects/libcxx
     git clone --depth=1 -b ${LLVM_RELEASE} https://github.com/llvm-mirror/libcxxabi.git llvm-source/projects/libcxxabi
 
-    # Setup libc++ options
     if [[ -z "$BUILD_32_BITS" ]]; then
       export BUILD_32_BITS=OFF && echo disabling 32 bit build
     fi
