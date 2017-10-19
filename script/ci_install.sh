@@ -16,7 +16,7 @@ if [[ ! -d "$(ls -A ${DEPENDENCY_DIR}/llvm-source)" ]]; then
     git clone --depth=1 -b ${LLVM_RELEASE} https://github.com/llvm-mirror/libcxx.git llvm-source/projects/libcxx
     git clone --depth=1 -b ${LLVM_RELEASE} https://github.com/llvm-mirror/libcxxabi.git llvm-source/projects/libcxxabi
 
-    if [[ -z "$BUILD_32_BITS" ]]; then
+    if [[ -z "${BUILD_32_BITS}" ]]; then
       export BUILD_32_BITS=OFF && echo disabling 32 bit build
     fi
 
