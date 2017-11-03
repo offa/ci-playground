@@ -41,4 +41,5 @@ before_script:
   - $CXX --version
 
 script:
+  - if [[ "${CXX}" == clang* ]]; then export CXXFLAGS="-stdlib=libc++"; fi
   - ${CXX} -std=c++17 Main.cpp
