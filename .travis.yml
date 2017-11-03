@@ -28,7 +28,8 @@ matrix:
         apt:
           packages:
             - clang-5.0
-            - g++-7
+            - libc++-dev
+            - libc++abi-dev
           sources: *sources
 
 install:
