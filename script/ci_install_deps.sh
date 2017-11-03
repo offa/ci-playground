@@ -18,7 +18,7 @@ cd googletest
 
 if [[ "${CXX}" == clang* ]]
 then
-    BUILD_FLAGS="${BUILD_FLAGS} -DCMAKE_CXX_FLAGS=-stdlib=libc++"
+    BUILD_FLAGS="${BUILD_FLAGS} -DCMAKE_CXX_FLAGS=-stdlib=libc++ -I/usr/include/c++/v1/cxxabi.h"
 fi
 
 mkdir -p build-${CC} && cd build-${CC}
