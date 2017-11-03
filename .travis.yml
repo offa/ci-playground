@@ -35,6 +35,7 @@ matrix:
 install:
   - script/ci_install.sh
   - script/ci_install_deps.sh
+  - find /usr/ -type f -name "cxxabi.h"
 
 before_script:
   - cmake --version
