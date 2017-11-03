@@ -40,7 +40,7 @@ then
         -DCMAKE_CXX_COMPILER=${CXX} \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DLIBCXX_ABI_UNSTABLE=ON \
+        #-DLIBCXX_ABI_UNSTABLE=ON \
         ../llvm-source
     make cxx -j4
 

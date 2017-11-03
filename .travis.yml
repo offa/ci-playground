@@ -31,7 +31,6 @@ matrix:
           sources: *sources
 
 install:
-  - if [[ "${CXX}" == clang* ]]; then export CXXFLAGS="-stdlib=libc++"; fi
   - script/ci_install.sh
   - script/ci_install_deps.sh
 
