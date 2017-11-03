@@ -34,8 +34,11 @@ install:
   - script/ci_install.sh
   - script/ci_install_deps.sh
 
-script:
+before_script:
   - cmake --version
   - git --version
   - $CC --version
   - $CXX --version
+
+script:
+  - ${CXX} -std=c++17 Main.cpp
