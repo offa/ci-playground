@@ -11,5 +11,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(ci-test Main.cpp)
 
 if( USE_COMPAT )
-    target_compile_definition(ci-test PRIVATE -DUSE_COMPAT)
+    target_compile_definitions(ci-test PRIVATE -DUSE_COMPAT)
 endif()
