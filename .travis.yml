@@ -3,6 +3,9 @@ language: generic
 dist: trusty
 sudo: required
 
+services:
+  - docker
+
 env:
   global:
     - DEPENDENCY_DIR="${TRAVIS_BUILD_DIR}/dependencies"
@@ -15,22 +18,24 @@ env:
 matrix:
     include:
     - env: CXX=g++-7 CC=gcc-7
-      addons:
-        apt:
-          packages:
-            - g++-7
-          sources: &sources
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty
-            - llvm-toolchain-trusty-5.0
+      #addons:
+        #apt:
+          #packages:
+            #- g++-7
+          #sources: &sources
+            #- ubuntu-toolchain-r-test
+            #- llvm-toolchain-trusty
+            #- llvm-toolchain-trusty-5.0
     - env: CXX=clang++-5.0 CC=clang-5.0
-      addons:
-        apt:
-          packages:
-            - clang-5.0
-          sources: *sources
+      #addons:
+        #apt:
+          #packages:
+            #- clang-5.0
+          #sources: *sources
 
+
+before_install:
+  - docker pull registry.gitlab.com/offa/docker-images/gcc-7:latest
 
 script:
-  - cmake --version
-  - ${CXX} --version
+  - docker images
