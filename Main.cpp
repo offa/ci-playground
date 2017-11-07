@@ -4,6 +4,7 @@
 
 #ifdef USE_COMPAT
 # pragma message "* Compat *"
+#endif /* USE_COMPAT */
 
 int main()
 {
