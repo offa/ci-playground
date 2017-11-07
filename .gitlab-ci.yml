@@ -13,12 +13,12 @@ gcc-6:
     - script/ci_build.sh
 
 clang-5:
-  image: ${DOCKER_IMG}/gcc-5:latest
+  image: ${DOCKER_IMG}/clang-5:latest
   script:
     - script/ci_build.sh
 
 clang-4:
-  image: ${DOCKER_IMG}/gcc-4:latest
+  image: ${DOCKER_IMG}/clang-4:latest
   script:
     - script/ci_build.sh
 
