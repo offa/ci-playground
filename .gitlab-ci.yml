@@ -1,21 +1,24 @@
+variables:
+  DOCKER_IMG: "registry.gitlab.com/offa/docker-images"
+
 
 gcc-7:
-  image: registry.gitlab.com/offa/docker-images/gcc-7:latest
+  image: ${DOCKER_IMG}/gcc-7:latest
   script:
     - script/ci_build.sh
 
 gcc-6:
-  image: registry.gitlab.com/offa/docker-images/gcc-6:latest
+  image: ${DOCKER_IMG}/gcc-6:latest
   script:
-    - script/ci_build.sh compat
+    - script/ci_build.sh
 
 clang-5:
-  image: registry.gitlab.com/offa/docker-images/gcc-5:latest
+  image: ${DOCKER_IMG}/gcc-5:latest
   script:
     - script/ci_build.sh
 
 clang-4:
-  image: registry.gitlab.com/offa/docker-images/gcc-4:latest
+  image: ${DOCKER_IMG}/gcc-4:latest
   script:
-    - script/ci_build.sh compat
+    - script/ci_build.sh
 
