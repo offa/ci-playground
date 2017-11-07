@@ -40,4 +40,4 @@ before_install:
   - docker images
 
 script:
-  - docker run -it ${DOCKER_IMG}/gcc-7 /bin/bash -c "\${CC} --version; cmake --version; ls"
+  - docker run -v ${PWD}:/mnt -it ${DOCKER_IMG}/gcc-7 /bin/bash -c "cd /mnt; pwd; ls"
