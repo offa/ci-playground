@@ -8,12 +8,7 @@ services:
 
 env:
   global:
-    - DEPENDENCY_DIR="${TRAVIS_BUILD_DIR}/dependencies"
     - DOCKER_IMG="registry.gitlab.com/offa/docker-images"
-
-#cache:
-  #directories:
-    #- ${DEPENDENCY_DIR}
 
 
 matrix:
