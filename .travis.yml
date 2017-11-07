@@ -20,6 +20,8 @@ matrix:
     include:
     - env: CC=gcc-7
     - env: CC=gcc-6
+    - env: CC=clang-5
+    - env: CC=clang-4
 
 
 before_install:
@@ -27,4 +29,4 @@ before_install:
   - docker images
 
 script:
-  - docker run -v ${PWD}:/mnt -it ${DOCKER_IMG}/${CC} /bin/bash -c "\${CC} --version"
+  - docker run -v ${PWD}:/mnt -it ${DOCKER_IMG}/${CC} /bin/bash -c "cd /mnt; script/ci_build.sh"
