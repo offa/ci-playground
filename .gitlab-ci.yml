@@ -7,7 +7,7 @@ gcc-7:
 gcc-6:
   image: registry.gitlab.com/offa/docker-images/gcc-6:latest
   script:
-    - script/ci_build.sh
+    - script/ci_build.sh compat
 
 clang-5:
   image: registry.gitlab.com/offa/docker-images/gcc-5:latest
@@ -17,5 +17,5 @@ clang-5:
 clang-4:
   image: registry.gitlab.com/offa/docker-images/gcc-4:latest
   script:
-    - script/ci_build.sh
+    - script/ci_build.sh compat
 
