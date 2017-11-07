@@ -1,7 +1,7 @@
 
-before_script:
-  - docker info
-  - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+#before_script:
+  #- docker info
+  #- docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
 
 gcc-7:
   image: registry.gitlab.com/offa/docker-images/gcc-7:latest
