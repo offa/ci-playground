@@ -1,5 +1,3 @@
-tags:
-  - docker
 
 before_script:
   - docker info
@@ -10,6 +8,8 @@ gcc-7:
   script:
     - cmake --version
     - gcc --version
+tags:
+  - docker
 
 
 gcc-6:
@@ -17,4 +17,6 @@ gcc-6:
   script:
     - cmake --version
     - gcc --version
+tags:
+  - docker
 
