@@ -1,5 +1,5 @@
 #include <cstddef>
-#include <cstdio>
+#include <cstdint>
 
 
 #ifdef USE_COMPAT
