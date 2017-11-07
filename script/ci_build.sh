@@ -14,6 +14,10 @@ then
     BUILD_PARAMS="-DUSE_COMPAT=ON"
 fi
 
+if [[ "${CXX}" == clang* ]]
+then
+    export CXXFLAGS="-stdlib=libc++"
+fi
 
 
 git --version
