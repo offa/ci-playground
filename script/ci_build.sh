@@ -8,7 +8,7 @@ then
     BUILD_PARAMS="-DUSE_COMPAT=ON"
 fi
 
-if [[ "${CC}" = gcc-5 ]]
+if [[ "${CC}" = gcc-6 ]]
 then
     echo "Use compat gcc"
     BUILD_PARAMS="-DUSE_COMPAT=ON"
