@@ -9,6 +9,7 @@ services:
 env:
   global:
     - DEPENDENCY_DIR="${TRAVIS_BUILD_DIR}/dependencies"
+    - DOCKER_IMG="registry.gitlab.com/offa/docker-images"
 
 #cache:
   #directories:
@@ -35,7 +36,8 @@ matrix:
 
 
 before_install:
-  - docker pull registry.gitlab.com/offa/docker-images/gcc-7:latest
+  - docker pull ${DOCKER_IMG}/gcc-7:latest
+  - docker images
 
 script:
-  - docker images
+  - docker run -it ${DOCKER_IMG} "\${CC} --version; cmake --version"
