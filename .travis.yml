@@ -30,17 +30,7 @@ matrix:
             - clang-5.0
           sources: *sources
 
-install:
-  - script/ci_install.sh
-  - script/ci_install_deps.sh
-  - find /usr/ -type f -name "cxxabi.h"
-
-before_script:
-  - cmake --version
-  - git --version
-  - $CC --version
-  - $CXX --version
 
 script:
-  - if [[ "${CXX}" == clang* ]]; then export CXXFLAGS="-stdlib=libc++"; fi
-  - ${CXX} -std=c++17 Main.cpp
+  - cmake --version
+  - ${CXX} --version
