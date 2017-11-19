@@ -2,18 +2,6 @@
 
 set -ex
 
-if [[ "${CC}" = clang-4.0 ]]
-then
-    echo "Use compat clang"
-    BUILD_PARAMS="-DUSE_COMPAT=ON"
-fi
-
-if [[ "${CC}" = gcc-6 ]]
-then
-    echo "Use compat gcc"
-    BUILD_PARAMS="-DUSE_COMPAT=ON"
-fi
-
 if [[ "${CXX}" == clang* ]]
 then
     export CXXFLAGS="-stdlib=libc++"
