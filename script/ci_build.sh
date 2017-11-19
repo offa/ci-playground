@@ -14,5 +14,5 @@ ${CC} --version
 ${CXX} --version
 
 mkdir build && cd build
-cmake ${BUILD_PARAMS} ..
+cmake ..
 make
