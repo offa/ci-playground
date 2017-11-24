@@ -1,24 +1,32 @@
+image: docker:latest
+
 variables:
-  DOCKER_IMG: "registry.gitlab.com/offa/docker-images/alpine"
+  DOCKER_DRIVER: overlay2
+  DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}
 
 
-#gcc-7:
-  #image: ${DOCKER_IMG}/gcc-7:latest
-  #script:
-    #- script/ci_build.sh
+before_script:
+  - docker info
+  - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+
+
+gcc-7:
+  script:
+    - script/build-image.sh gcc-7 docker/x86
 
 gcc-6:
-  image: ${DOCKER_IMG}/gcc-6:latest
   script:
-    - script/ci_build.sh
+    - script/build-image.sh gcc-6 docker/x86
 
 clang-5:
-  image: ${DOCKER_IMG}/clang-5:latest
   script:
-    - script/ci_build.sh
+    - script/build-image.sh clang-5 docker/x86
 
-#clang-4:
-  #image: ${DOCKER_IMG}/clang-4:latest
-  #script:
-    #- script/ci_build.sh
+clang-4:
+  script:
+    - script/build-image.sh clang-4 docker/x86
+
+arm-gcc:
+  script:
+    - script/build-image.sh gcc-arm docker/arm
 
