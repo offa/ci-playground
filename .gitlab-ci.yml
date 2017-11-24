@@ -29,7 +29,7 @@ clang-4:
   script:
     - script/build-image.sh clang-4 docker/x86
 
-arm-gcc:
+arm-none-eabi-gcc:
   script:
     - script/build-image.sh arm-none-eabi-gcc docker/arm
 
