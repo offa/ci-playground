@@ -31,5 +31,5 @@ clang-4:
 
 arm-gcc:
   script:
-    - script/build-image.sh arm-gcc docker/arm
+    - script/build-image.sh arm-none-eabi-gcc docker/arm
 
