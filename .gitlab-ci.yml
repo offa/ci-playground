@@ -18,27 +18,21 @@ before_script:
 
 gcc-7:
   script:
-    - pwd
-    - ls *
-    - script/build-image.sh gcc-7 docker/x86
+    - ../script/build-image.sh gcc-7 docker/x86
 
 gcc-6:
   script:
-    - pwd
-    - script/build-image.sh gcc-6 docker/x86
+    - ../script/build-image.sh gcc-6 docker/x86
 
 clang-5:
   script:
-    - pwd
-    - script/build-image.sh clang-5 docker/x86
+    - ../script/build-image.sh clang-5 docker/x86
 
 clang-4:
   script:
-    - pwd
-    - script/build-image.sh clang-4 docker/x86
+    - ../script/build-image.sh clang-4 docker/x86
 
 arm-none-eabi-gcc:
   script:
-    - pwd
-    - script/build-image.sh arm-none-eabi-gcc docker/arm
+    - ../script/build-image.sh arm-none-eabi-gcc docker/arm
 
