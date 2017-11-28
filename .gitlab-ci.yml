@@ -19,6 +19,7 @@ before_script:
 gcc-7:
   script:
     - pwd
+    - ls *
     - script/build-image.sh gcc-7 docker/x86
 
 gcc-6:
