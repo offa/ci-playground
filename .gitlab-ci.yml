@@ -11,6 +11,7 @@ services:
 before_script:
   - docker info
   - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+  - apk add git
   - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
   - cd stm32-eth
 
