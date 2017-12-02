@@ -8,19 +8,20 @@ services:
 
 env:
   global:
-    - DOCKER_IMG="registry.gitlab.com/offa/docker-images/alpine"
+    - DOCKER_IMG="registry.gitlab.com/offa/docker-images"
 
 
 matrix:
     include:
-    #- env: CC=gcc-7
-    - env: CC=gcc-6
-    - env: CC=clang-5
-    #- env: CC=clang-4
+    - env: COMPILER=gcc-7
+    - env: COMPILER=gcc-6
+    - env: COMPILER=clang-5
+    - env: COMPILER=clang-4
+    - env: COMPILER=arm-none-eabi-gcc
 
 
 before_install:
-  - docker pull ${DOCKER_IMG}/${CC}:latest
+  - docker pull ${DOCKER_IMG}/${COMPILER}:latest
 
 script:
-  #- docker run -v ${PWD}:/mnt -it ${DOCKER_IMG}/${CC} /bin/bash -c "cd /mnt; script/ci_build.sh"
+  #- docker run -v ${PWD}:/mnt -COMPILER ${DOCKER_IMG}/${CC} /bin/bash -c "cd /mnt; script/ci_build.sh"
