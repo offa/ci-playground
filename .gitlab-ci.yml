@@ -12,27 +12,27 @@ before_script:
   - docker info
   - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
   - apk add --update git
-  - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
+  - git clone --depth=1 --branch issue71-merged_dockerfiles https://github.com/offa/stm32-eth stm32-eth
   - cd stm32-eth
 
 
 gcc-7:
   script:
-    - ../script/build-image.sh gcc-7 docker/x86
+    - ../script/build-image.sh gcc-7 .
 
 gcc-6:
   script:
-    - ../script/build-image.sh gcc-6 docker/x86
+    - ../script/build-image.sh gcc-6 .
 
 clang-5:
   script:
-    - ../script/build-image.sh clang-5 docker/x86
+    - ../script/build-image.sh clang-5 .
 
 clang-4:
   script:
-    - ../script/build-image.sh clang-4 docker/x86
+    - ../script/build-image.sh clang-4 .
 
 arm-none-eabi-gcc:
   script:
-    - ../script/build-image.sh arm-none-eabi-gcc docker/arm
+    - ../script/build-image.sh arm-none-eabi-gcc .
 
