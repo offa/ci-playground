@@ -12,7 +12,7 @@ before_script:
   - docker info
   - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
   - apk add --update git
-  - git clone --depth=1 --branch issue71-merged_dockerfiles https://github.com/offa/stm32-eth stm32-eth
+  - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
 
 
 gcc-7:
