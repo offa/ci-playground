@@ -2,7 +2,7 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay2
-  DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/experimental
+  DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/dist-stm32
 
 services:
   - docker:dind
