@@ -15,27 +15,36 @@ before_script:
   - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
 
 
+.stm32-eth_template: &stm32-eth_job_definition
+  variables:
+    DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/dist-stm32
+
 gcc-7:
+  <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh gcc-7 .
 
 gcc-6:
+  <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh gcc-6 .
 
 clang-5:
+  <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh clang-5 .
 
 clang-4:
+  <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh clang-4 .
 
 arm-none-eabi-gcc:
+  <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh arm-none-eabi-gcc .
