@@ -13,39 +13,64 @@ before_script:
   - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
   - apk add --update git
   - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
+  - git clone --depth=1 --branch=ci/docker https://github.com/offa/danek danek
 
 
+# ----------------------------------
+# Stm32-eth Image Build
+# ----------------------------------
 .stm32-eth_template: &stm32-eth_job_definition
   variables:
     DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/dist-stm32
 
-gcc-7:
+stm32-eth_gcc-7:
   <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh gcc-7 .
 
-gcc-6:
+stm32-eth_gcc-6:
   <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh gcc-6 .
 
-clang-5:
+stm32-eth_clang-5:
   <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh clang-5 .
 
-clang-4:
+stm32-eth_clang-4:
   <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh clang-4 .
 
-arm-none-eabi-gcc:
+stm32-eth_arm-none-eabi-gcc:
   <<: *stm32-eth_job_definition
   script:
     - cd stm32-eth
     - ../script/build-image.sh arm-none-eabi-gcc .
+
+
+# ----------------------------------
+# Danek Image Build
+# ----------------------------------
+.danek_template: &danek_job_definition
+  variables:
+    DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/dist-danek
+
+danek_gcc-7:
+  <<: *danek_job_definition
+  script:
+    - cd danek
+    - ../script/build-image.sh gcc-7 .
+
+danek_clang-5:
+  <<: *danek_job_definition
+  script:
+    - cd danedane
+    - ../script/build-image.sh clang-5 .
+
 
