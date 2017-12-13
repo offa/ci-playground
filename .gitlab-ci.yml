@@ -70,7 +70,7 @@ danek_gcc-7:
 danek_clang-5:
   <<: *danek_job_definition
   script:
-    - cd danedane
+    - cd danek
     - ../script/build-image.sh clang-5 .
 
 
