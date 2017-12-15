@@ -14,6 +14,7 @@ before_script:
   - apk add --update git
   - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
   - git clone --depth=1 --branch=ci/docker https://github.com/offa/danek danek
+  - git clone --depth=1 --branch=ci/docker https://github.com/offa/keygen keygen
 
 
 # ----------------------------------
@@ -73,4 +74,35 @@ danek_clang-5:
     - cd danek
     - ../script/build-image.sh clang-5 .
 
+
+# ----------------------------------
+# Keygen Image Build
+# ----------------------------------
+.keygen_template: &keygen_job_definition
+  variables:
+    DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/dist-keygen
+
+keygen_gcc-7:
+  <<: *keygen_job_definition
+  script:
+    - cd keygen
+    - ../script/build-image.sh gcc-7 .
+
+keygen_gcc-6:
+  <<: *keygen_job_definition
+  script:
+    - cd keygen
+    - ../script/build-image.sh gcc-6 .
+
+keygen_clang-5:
+  <<: *keygen_job_definition
+  script:
+    - cd keygen
+    - ../script/build-image.sh clang-5 .
+
+keygen_clang-4:
+  <<: *keygen_job_definition
+  script:
+    - cd keygen
+    - ../script/build-image.sh clang-4 .
 
