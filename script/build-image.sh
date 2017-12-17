@@ -5,7 +5,8 @@ set -ex
 IMG=$1
 IMG_PATH=$2
 
-if [ "$3" != "--no-arg" ]; then
+if [ "$3" != "--no-arg" ]
+then
     BUILD_ARG="--build-arg COMPILER=${IMG}"
 fi
 
