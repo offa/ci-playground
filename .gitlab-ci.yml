@@ -14,7 +14,7 @@ before_script:
   - apk add --update git
   - git clone --depth=1 https://github.com/offa/stm32-eth stm32-eth
   - git clone --depth=1 https://github.com/offa/danek danek
-  - git clone --depth=1 --branch=ci/docker https://github.com/offa/keygen keygen
+  - git clone --depth=1 https://github.com/offa/keygen keygen
 
 
 # ----------------------------------
