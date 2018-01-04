@@ -125,28 +125,28 @@ keygen_clang-4:
 matcher_gcc-7:
   <<: *matcher_job_definition
   script:
-    - git clone --depth=1 --branch=ci/docker https://github.com/offa/matcher matcher
+    - git clone --depth=1 https://github.com/offa/matcher matcher
     - cd matcher
     - ../script/build-image.sh gcc-7 .
 
 matcher_gcc-6:
   <<: *matcher_job_definition
   script:
-    - git clone --depth=1 --branch=ci/docker https://github.com/offa/matcher matcher
+    - git clone --depth=1 https://github.com/offa/matcher matcher
     - cd matcher
     - ../script/build-image.sh gcc-6 .
 
 matcher_clang-5:
   <<: *matcher_job_definition
   script:
-    - git clone --depth=1 --branch=ci/docker https://github.com/offa/matcher matcher
+    - git clone --depth=1 https://github.com/offa/matcher matcher
     - cd matcher
     - ../script/build-image.sh clang-5 .
 
 matcher_clang-4:
   <<: *matcher_job_definition
   script:
-    - git clone --depth=1 --branch=ci/docker https://github.com/offa/matcher matcher
+    - git clone --depth=1 https://github.com/offa/matcher matcher
     - cd matcher
     - ../script/build-image.sh clang-4 .
 
