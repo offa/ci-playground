@@ -20,8 +20,5 @@ matrix:
     - env: COMPILER=arm-none-eabi-gcc
 
 
-before_install:
-  - docker pull ${DOCKER_IMG}/${COMPILER}:latest
-
 script:
-  #- docker run -v ${PWD}:/mnt ${DOCKER_IMG}/${COMPILER} /bin/bash -c "cd /mnt; script/ci_build.sh"
+  - echo "Nothing to do at the moment..."
