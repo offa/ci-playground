@@ -8,17 +8,16 @@ services:
 
 env:
   global:
-    - DOCKER_IMG="registry.gitlab.com/offa/docker-images"
+    - DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/staging-ci-opencv3
 
 
 matrix:
     include:
     - env: COMPILER=gcc-7
-    - env: COMPILER=gcc-6
     - env: COMPILER=clang-5
-    - env: COMPILER=clang-4
-    - env: COMPILER=arm-none-eabi-gcc
 
 
 script:
-  - echo "Nothing to do at the moment..."
+    - IMG=${DEPLOY_REGISTRY}-${COMPILER}
+    - cd ci-docker-opencv3
+    - docker build --pull -t ${IMG} . --build-arg COMPILER=${COMPILER}
