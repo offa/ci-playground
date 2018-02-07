@@ -2,11 +2,20 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay2
+  DEPLOY_REGISTRY: ${CI_REGISTRY_IMAGE}/staging-ci-opencv3
 
 services:
   - docker:dind
 
 
-build:
+
+before_script:
+  - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
+
+
+build-gcc-7:
   script:
-    - echo "Nothing to do at the moment..."
+    - IMG=${DEPLOY_REGISTRY}-gcc-7
+    - cd ci-docker-opencv3
+    - docker build --pull -t ${IMG} . --build-arg COMPILER=gcc-7
+    - docker push ${IMG}
