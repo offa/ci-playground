@@ -19,3 +19,11 @@ build-gcc-7:
     - cd ci-docker-opencv3
     - docker build --pull -t ${IMG} . --build-arg COMPILER=gcc-7
     - docker push ${IMG}
+
+build-clang-5:
+  script:
+    - IMG=${DEPLOY_REGISTRY}-clang-5
+    - cd ci-docker-opencv3
+    - docker build --pull -t ${IMG} . --build-arg COMPILER=clang-5
+    - docker push ${IMG}
+
