@@ -11,13 +11,5 @@ env:
     - DEPLOY_REGISTRY: registry.gitlab.com/offa/ci-playground/staging-ci-opencv3
 
 
-matrix:
-    include:
-    - env: COMPILER=gcc-7
-    - env: COMPILER=clang-5
-
-
 script:
-    - IMG=${DEPLOY_REGISTRY}-${COMPILER}
-    - cd ci-docker-opencv3
-    - docker build --pull -t ${IMG} . --build-arg COMPILER=${COMPILER}
+  - echo "Nothing to to ..."
