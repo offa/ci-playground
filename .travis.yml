@@ -10,6 +10,25 @@ env:
   global:
     - DEPLOY_REGISTRY: registry.gitlab.com/offa/ci-playground/staging-ci-opencv3
 
+matrix:
+    include:
+    - env: CXX=g++-8 CC=gcc-8
+      addons:
+        apt:
+          packages:
+            - g++-8
+          sources: &sources
+            - ubuntu-toolchain-r-test
+    - env: CXX=g++-7 CC=gcc-7
+      addons:
+        apt:
+          packages:
+            - g++-7
+          sources: *sources
+
 
 script:
-  - echo "Nothing to to ..."
+  - git clone https://github.com/offa/plug.git
+  - cd plug
+  - ${CXX} --version
+  - script/ci_build.sh -ubsan -asan
