@@ -37,7 +37,4 @@ before_script:
   - export PATH=$PATH:/usr/local/cmake/bin
 
 script:
-  - git clone https://github.com/offa/plug.git
-  - cd plug
-  - ${CXX} --version
-  - script/ci_build.sh -ubsan -asan
+  - build.sh
