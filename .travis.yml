@@ -10,31 +10,6 @@ env:
   global:
     - DEPLOY_REGISTRY: registry.gitlab.com/offa/ci-playground/staging-ci-opencv3
 
-matrix:
-    include:
-    - env: CXX=g++-8 CC=gcc-8
-      addons:
-        apt:
-          packages:
-            - g++-8
-          sources: &sources
-            - ubuntu-toolchain-r-test
-    - env: CXX=g++-7 CC=gcc-7
-      addons:
-        apt:
-          packages:
-            - g++-7
-          sources: *sources
-
-
-before_install:
-  - curl -sSL https://cmake.org/files/v3.11/cmake-3.11.1-Linux-x86_64.sh -o install-cmake.sh
-  - chmod +x install-cmake.sh
-  - sudo ./install-cmake.sh --prefix=/usr/local --skip-license
-  - rm install-cmake.sh
-
-before_script:
-  - export PATH=$PATH:/usr/local/cmake/bin
 
 script:
-  - build.sh
+  - echo "Nothing to to ..."
