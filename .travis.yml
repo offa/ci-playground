@@ -3,13 +3,41 @@ language: generic
 dist: trusty
 sudo: required
 
-services:
-  - docker
-
-env:
-  global:
-    - DEPLOY_REGISTRY: registry.gitlab.com/offa/ci-playground/staging-ci-opencv3
+matrix:
+    include:
+    - env: CXX=g++-8 CC=gcc-8
+      addons:
+        apt:
+          packages:
+            - g++-8
+          sources: &sources
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty
+            - llvm-toolchain-trusty-7.0
+            - llvm-toolchain-trusty-6.0
+            - llvm-toolchain-trusty-5.0
+    - env: CXX=g++-7 CC=gcc-7
+      addons:
+        apt:
+          packages:
+            - g++-7
+          sources: *sources
+    - env: CXX=clang++-6.0 CC=clang-6.0
+      addons:
+        apt:
+          packages:
+            - clang-6.0
+            - libc++-dev
+          sources: *sources
+    - env: CXX=clang++-5.0 CC=clang-5.0
+      addons:
+        apt:
+          packages:
+            - clang-5.0
+            - libc++-dev
+          sources: *sources
 
 
 script:
-  - echo "Nothing to to ..."
+  - ${CC} --version
+  - ${CXX} --version
