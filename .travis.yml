@@ -48,3 +48,4 @@ matrix:
 script:
   - ${CC} --version
   - ${CXX} --version
+  - cmake --version
