@@ -13,7 +13,7 @@ matrix:
           sources: &sources
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty
-            - llvm-toolchain-trusty-7.0
+            - llvm-toolchain-trusty-7
             - llvm-toolchain-trusty-6.0
             - llvm-toolchain-trusty-5.0
     - env: CXX=g++-7 CC=gcc-7
@@ -22,12 +22,12 @@ matrix:
           packages:
             - g++-7
           sources: *sources
-    - env: CXX=clang++-7.0 CC=clang-7.0
+    - env: CXX=clang++-7 CC=clang-7
       addons:
         apt:
           packages:
-            - clang-7.0
-            - libc++-dev
+            - clang-7
+            - libstdc++-7-dev
           sources: *sources
     - env: CXX=clang++-6.0 CC=clang-6.0
       addons:
