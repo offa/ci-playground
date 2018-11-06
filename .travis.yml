@@ -34,7 +34,7 @@ matrix:
         apt:
           packages:
             - clang-6.0
-            - libc++-6.0-dev
+            - libc++-dev
           sources: *sources
     - env: CXX=clang++-5.0 CC=clang-5.0
       addons:
