@@ -12,10 +12,10 @@ matrix:
             - g++-8
           sources: &sources
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty
-            - llvm-toolchain-trusty-7
-            - llvm-toolchain-trusty-6.0
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-xenial
+            - llvm-toolchain-xenial-7
+            - llvm-toolchain-xenial-6.0
+            - llvm-toolchain-xenial-5.0
     - env: CXX=g++-7 CC=gcc-7
       addons:
         apt:
