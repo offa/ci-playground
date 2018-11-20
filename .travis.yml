@@ -10,12 +10,19 @@ matrix:
         apt:
           packages:
             - g++-8
+            - valgrind
           sources: &sources
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-xenial
-            - llvm-toolchain-xenial-7
-            - llvm-toolchain-xenial-6.0
-            - llvm-toolchain-xenial-5.0
+            - llvm-toolchain-trusty
+            - llvm-toolchain-trusty-7
+            - llvm-toolchain-trusty-6.0
+            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-trusty-4.0
+            - llvm-toolchain-trusty-3.9
+            - llvm-toolchain-precise-3.8
+            - llvm-toolchain-precise-3.7
+            - llvm-toolchain-precise-3.6
+
     - env: CXX=g++-7 CC=gcc-7
       addons:
         apt:
