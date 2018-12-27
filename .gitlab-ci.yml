@@ -2,6 +2,7 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay2
+  DOCKER_IMG: "registry.gitlab.com/offa/docker-images/arm-none-eabi-gcc:latest"
 
 services:
   - docker:dind
@@ -12,7 +13,10 @@ before_script:
   - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${CI_REGISTRY}
 
 
-default-job:
+test:
+  image: ${DOCKER_IMG}
   script:
-    - echo "Nothing to to ..."
+    - arm-none-eabi-gcc --version
+    - arm-none-eabi-g++ --version
+
 
