@@ -2,15 +2,12 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay2
-  DOCKER_IMG: "registry.gitlab.com/offa/docker-images/arm-none-eabi-gcc:latest"
 
 services:
   - docker:dind
 
-test:
-  image: ${DOCKER_IMG}
+build-arm-none-eabi-gcc:
   script:
-    - arm-none-eabi-gcc --version
-    - arm-none-eabi-g++ --version
+    - script/build-image.sh arm-none-eabi-gcc cpp/arm-none-eabi-gcc 7
 
 
