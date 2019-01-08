@@ -9,6 +9,6 @@ services:
 
 build-arm-none-eabi-gcc:
   script:
-    - script/build-image.sh arm-none-eabi-gcc cpp/arm-none-eabi-gcc
+    - script/build-image.sh arm-none-eabi-gcc .
 
 
