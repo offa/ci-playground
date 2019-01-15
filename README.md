@@ -12,5 +12,6 @@ Comment:
 1
 
 [//]: # (A hidden comment)
+[//]: # "A 2nd Comment"
 
 2
