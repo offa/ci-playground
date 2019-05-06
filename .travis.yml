@@ -1,6 +1,6 @@
 language: generic
 
-dist: xenial
+dist: trusty
 
 matrix:
     include:
