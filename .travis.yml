@@ -1,7 +1,6 @@
 language: generic
 
 dist: xenial
-sudo: required
 
 matrix:
     include:
@@ -10,7 +9,6 @@ matrix:
         apt:
           packages:
             - g++-8
-            - valgrind
           sources: &sources
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty
