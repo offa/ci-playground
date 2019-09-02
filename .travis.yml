@@ -16,11 +16,6 @@ matrix:
             - llvm-toolchain-xenial-7
             - llvm-toolchain-xenial-6.0
             - llvm-toolchain-xenial-5.0
-            - llvm-toolchain-trusty-4.0
-            - llvm-toolchain-trusty-3.9
-            - llvm-toolchain-precise-3.8
-            - llvm-toolchain-precise-3.7
-            - llvm-toolchain-precise-3.6
     - env: CXX=g++-8 CC=gcc-8
       addons:
         apt:
