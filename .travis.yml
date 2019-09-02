@@ -9,8 +9,8 @@ matrix:
         apt:
           packages:
             - g++-9
-          #sources: &sources
-            #- ubuntu-toolchain-r-test
+          sources: &sources
+            - ubuntu-toolchain-r-test
             #- llvm-toolchain-trusty
             #- llvm-toolchain-xenial-8
             #- llvm-toolchain-xenial-7
