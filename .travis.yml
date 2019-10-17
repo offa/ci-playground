@@ -1,55 +1,27 @@
-language: generic
-
+language: minimal
 dist: bionic
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_IMG="registry.gitlab.com/offa/plug/ci"
+
 
 matrix:
     include:
-    - env: CXX=g++-9 CC=gcc-9
-      addons:
-        apt:
-          packages:
-            - g++-9
-          sources: &sources
-            - ubuntu-toolchain-r-test
-            #- llvm-toolchain-trusty
-            #- llvm-toolchain-xenial-8
-            #- llvm-toolchain-xenial-7
-            #- llvm-toolchain-xenial-6.0
-            #- llvm-toolchain-xenial-5.0
-    #- env: CXX=g++-8 CC=gcc-8
-      #addons:
-        #apt:
-          #packages:
-            #- g++-8
-          #sources: *sources
-    #- env: CXX=g++-7 CC=gcc-7
-      #addons:
-        #apt:
-          #packages:
-            #- g++-7
-          #sources: *sources
-    #- env: CXX=clang++-7 CC=clang-7
-      #addons:
-        #apt:
-          #packages:
-            #- clang-7
-            #- libstdc++-7-dev
-          #sources: *sources
-    #- env: CXX=clang++-6.0 CC=clang-6.0
-      #addons:
-        #apt:
-          #packages:
-            #- clang-6.0
-          #sources: *sources
-    #- env: CXX=clang++-5.0 CC=clang-5.0
-      #addons:
-        #apt:
-          #packages:
-            #- clang-5.0
-          #sources: *sources
+    - env: COMPILER=gcc-9
+    - env: COMPILER=gcc-8
+    - env: COMPILER=gcc-7
+    - env: COMPILER=clang-9
+    - env: COMPILER=clang-8
+    - env: COMPILER=clang-7
 
+
+before_install:
+  - docker pull ${DOCKER_IMG}/${COMPILER}:latest
 
 script:
-  - ${CC} --version
-  - ${CXX} --version
-  - cmake --version
+  - docker run --cap-add SYS_PTRACE -v ${PWD}:/mnt -it ${DOCKER_IMG}/${COMPILER} /bin/bash -c "${CC} --version"
+
