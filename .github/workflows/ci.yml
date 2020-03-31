@@ -15,4 +15,6 @@ jobs:
         uses: actions/setup-java@master
         with:
           java-version: ${{ matrix.java }}
-      - run: java -version
+      - run: |
+        java -version
+        mvn --version
