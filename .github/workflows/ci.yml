@@ -16,5 +16,5 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - run: |
-        java -version
-        mvn --version
+          java -version
+          mvn --version
