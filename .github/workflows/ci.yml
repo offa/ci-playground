@@ -8,9 +8,17 @@ jobs:
     env:
       ABC: 123
     steps:
-      - name: step 1
+      - uses: actions/checkout@master
+      - name: build 1
         run: echo "<<<$ABC>>>"
-      - name: step 2
+      - name: build 2
         run: pwd
-      - name: step 3
+      - name: build 3
         run: ls -lh
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test 1
+        run: uname -a
+      - name: test 2
+        run: cat /etc/lsb-release
