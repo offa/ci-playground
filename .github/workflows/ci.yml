@@ -8,5 +8,9 @@ jobs:
     env:
       ABC: 123
     steps:
-      - name: build job
+      - name: step 1
         run: echo "<<<$ABC>>>"
+      - name: step 2
+        run: pwd
+      - name: step 3
+        run: ls -lh
