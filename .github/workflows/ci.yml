@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ABC=123
+      ABC: 123
     steps:
       - name: build job
         run: echo "<<<$ABC>>>"
