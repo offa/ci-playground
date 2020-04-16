@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        a: [ 8, 11, 12, 13, 14 ]
+        a: [ a, b, c ]
         b: [ 1, 2, 3 ]
-    name: test-${{ matrix.a }}-{{ matrix.b }}
+    name: test-${{ matrix.a }}-${{ matrix.b }}
     steps:
       - uses: actions/checkout@master
       - run: |
