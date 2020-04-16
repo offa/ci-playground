@@ -5,14 +5,13 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: registry.gitlab.com/offa/plug/ci/gcc-9:latest
     strategy:
       matrix:
-        a: [ a, b, c ]
-        b: [ 1, 2, 3 ]
-    name: test-${{ matrix.a }}-${{ matrix.b }}
+        a: [ a, b ]
+    name: test-${{ matrix.a }}
     steps:
       - uses: actions/checkout@master
       - run: |
-          echo "-${{ matrix.a }}-${{ matrix.b }}"
-          which gcc
-          ls -l /usr/bin
+        $CC --version
+        cmake --version
