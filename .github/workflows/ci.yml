@@ -12,6 +12,4 @@ jobs:
     name: test-${{ matrix.a }}
     steps:
       - uses: actions/checkout@master
-      - run: |
-        gcc --version
-        cmake --version
+      - run: $CC --version
