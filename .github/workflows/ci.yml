@@ -13,5 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
-        $CC --version
+        gcc --version
         cmake --version
