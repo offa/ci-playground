@@ -12,4 +12,6 @@ jobs:
     container: registry.gitlab.com/offa/plug/ci/gcc-${{ matrix.a }}:latest
     steps:
       - uses: actions/checkout@master
-      - run: $CC --version
+      - run: |
+        $CC --version
+        ls -l
