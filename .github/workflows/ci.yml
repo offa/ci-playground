@@ -15,5 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: |
-         $CC --version
+         cc --version
+         cxx --version
          ls -l
