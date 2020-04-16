@@ -9,7 +9,7 @@ jobs:
       matrix:
         a: [ 9, 8, 7 ]
     name: test-${{ matrix.a }}
-    container: registry.gitlab.com/offa/plug/ci/gcc-${{ a }}:latest
+    container: registry.gitlab.com/offa/plug/ci/gcc-${{ matrix.a }}:latest
     steps:
       - uses: actions/checkout@master
       - run: $CC --version
