@@ -14,6 +14,4 @@ jobs:
       - uses: actions/checkout@master
       - run: |
           echo "-${{ matrix.a }}-${{ matrix.b }}"
-          gcc --version
-          clang --version
-          cmake --version
+          which gcc
