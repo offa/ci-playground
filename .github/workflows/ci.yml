@@ -12,7 +12,7 @@ jobs:
           - { name: "GCC 8", cc: "gcc-8", cxx: "g++-8" }
           - { name: "Clang 9", cc: "clang-9", cxx: "clang++-9" }
           - { name: "Clang 8", cc: "clang-8", cxx: "clang++-8" }
-    name: test-${{ matrix.config.name }}
+    name: ${{ matrix.config.name }}
     steps:
       - uses: actions/checkout@master
       - run: |
