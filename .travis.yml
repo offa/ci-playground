@@ -1,27 +1,14 @@
 language: minimal
-dist: bionic
+dist: focal
 
 services:
   - docker
 
-env:
-  global:
-    - DOCKER_IMG="registry.gitlab.com/offa/plug/ci"
-
-
-matrix:
-    include:
-    - env: COMPILER=gcc-9
-    - env: COMPILER=gcc-8
-    - env: COMPILER=gcc-7
-    - env: COMPILER=clang-9
-    - env: COMPILER=clang-8
-    - env: COMPILER=clang-7
-
-
-before_install:
-  - docker pull ${DOCKER_IMG}/${COMPILER}:latest
-
 script:
-  - docker run --cap-add SYS_PTRACE -v ${PWD}:/mnt -it ${DOCKER_IMG}/${COMPILER} /bin/bash -c "cd /mnt; script/ci_build.sh"
-
+  - gcc --version
+  - clang --version
+  - cmake --version
+  - java --version
+  - git --version
+  - docker --version
+  - python --version
