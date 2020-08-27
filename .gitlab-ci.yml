@@ -1,25 +1,34 @@
 variables:
   DOCKER_IMG: "registry.gitlab.com/offa/plug/ci"
 
-gcc-10:
-  image: ${DOCKER_IMG}/gcc-10:latest
+
+build_gcc:
+  parallel:
+    matrix:
+      - GCC: [10, 9, 8, 7]
+  image: ${DOCKER_IMG}/gcc-$GCC:latest
   script:
     - "echo $CC"
 
-gcc-9:
-  image: ${DOCKER_IMG}/gcc-9:latest
-  script:
-    - "echo $CC"
+#gcc-10:
+  #image: ${DOCKER_IMG}/gcc-10:latest
+  #script:
+    #- "echo $CC"
 
-gcc-8:
-  image: ${DOCKER_IMG}/gcc-8:latest
-  script:
-    - "echo $CC"
+#gcc-9:
+  #image: ${DOCKER_IMG}/gcc-9:latest
+  #script:
+    #- "echo $CC"
 
-gcc-7:
-  image: ${DOCKER_IMG}/gcc-7:latest
-  script:
-    - "echo $CC"
+#gcc-8:
+  #image: ${DOCKER_IMG}/gcc-8:latest
+  #script:
+    #- "echo $CC"
+
+#gcc-7:
+  #image: ${DOCKER_IMG}/gcc-7:latest
+  #script:
+    #- "echo $CC"
 
 clang-10:
   image: ${DOCKER_IMG}/clang-10:latest
