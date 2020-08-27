@@ -5,10 +5,11 @@ variables:
 build_gcc:
   parallel:
     matrix:
-      - GCC: [10, 9, 8, 7]
-  image: ${DOCKER_IMG}/gcc-$GCC:latest
+      - COMPILER: gcc
+        VERSION: [10, 9, 8, 7]
+  image: ${DOCKER_IMG}/$COMPILER-$GCC:latest
   script:
-    - "echo $CC"
+    - "echo $COMPILER $CC"
 
 #gcc-10:
   #image: ${DOCKER_IMG}/gcc-10:latest
