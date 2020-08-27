@@ -7,51 +7,9 @@ build_gcc:
     matrix:
       - COMPILER: gcc
         VERSION: [10, 9, 8, 7]
+      - COMPILER: clang
+        VERSION: [10, 9, 8, 7, 6]
   image: ${DOCKER_IMG}/$COMPILER-$VERSION:latest
   script:
-    - "echo $COMPILER $CC"
-
-#gcc-10:
-  #image: ${DOCKER_IMG}/gcc-10:latest
-  #script:
-    #- "echo $CC"
-
-#gcc-9:
-  #image: ${DOCKER_IMG}/gcc-9:latest
-  #script:
-    #- "echo $CC"
-
-#gcc-8:
-  #image: ${DOCKER_IMG}/gcc-8:latest
-  #script:
-    #- "echo $CC"
-
-#gcc-7:
-  #image: ${DOCKER_IMG}/gcc-7:latest
-  #script:
-    #- "echo $CC"
-
-clang-10:
-  image: ${DOCKER_IMG}/clang-10:latest
-  script:
-    - "echo $CC"
-
-clang-9:
-  image: ${DOCKER_IMG}/clang-9:latest
-  script:
-    - "echo $CC"
-
-clang-8:
-  image: ${DOCKER_IMG}/clang-8:latest
-  script:
-    - "echo $CC"
-
-clang-7:
-  image: ${DOCKER_IMG}/clang-7:latest
-  script:
-    - "echo $CC"
-
-clang-6:
-  image: ${DOCKER_IMG}/clang-6:latest
-  script:
-    - "echo $CC"
+    - "echo $COMPILER $VERSION"
+    - $CC --version
