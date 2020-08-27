@@ -2,7 +2,7 @@ variables:
   DOCKER_IMG: "registry.gitlab.com/offa/plug/ci"
 
 
-build_gcc:
+build_all:
   parallel:
     matrix:
       - COMPILER: gcc
