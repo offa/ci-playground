@@ -7,7 +7,7 @@ build_gcc:
     matrix:
       - COMPILER: gcc
         VERSION: [10, 9, 8, 7]
-  image: ${DOCKER_IMG}/$COMPILER-$GCC:latest
+  image: ${DOCKER_IMG}/$COMPILER-$VERSION:latest
   script:
     - "echo $COMPILER $CC"
 
