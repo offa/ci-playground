@@ -4,12 +4,8 @@ dist: focal
 
 jobs:
   include:
-    aaa:
-      - "a1"
-      - "a2"
-    bbb:
-      - "b1"
-      - "b2"
+    - env: "AAAA BBB CCC"
+    - env: "DDDD EEE FFF"
 
 script:
-  - echo "test"
+  - echo "${ARGS}"
