@@ -2,6 +2,10 @@ language: minimal
 
 dist: focal
 
+envs:
+  - XXX=1
+  - YYY=2
+
 jobs:
   include:
     - env: ["AAAA BBB CCC", "XXXX"]
