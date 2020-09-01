@@ -4,7 +4,7 @@ dist: focal
 
 jobs:
   include:
-    - env: "AAAA BBB CCC"
+    - env: ["AAAA BBB CCC", "XXXX"]
     - env: "DDDD EEE FFF"
 
 script:
