@@ -1,14 +1,14 @@
 language: minimal
+
 dist: focal
 
-services:
-  - docker
+aaa:
+  - "a1"
+  - "a2"
+bbb:
+  - "b1"
+  - "b2"
+
 
 script:
-  - gcc --version
-  - clang --version
-  - cmake --version
-  - java --version
-  - git --version
-  - docker --version
-  - python --version
+  - echo "test"
