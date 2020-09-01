@@ -4,7 +4,9 @@ dist: focal
 
 envs:
   - XXX=1
+    X2=3
   - YYY=2
+    Y2=4
 
 jobs:
   include:
