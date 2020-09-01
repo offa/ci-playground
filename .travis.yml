@@ -2,13 +2,14 @@ language: minimal
 
 dist: focal
 
-aaa:
-  - "a1"
-  - "a2"
-bbb:
-  - "b1"
-  - "b2"
-
+jobs:
+  include:
+    aaa:
+      - "a1"
+      - "a2"
+    bbb:
+      - "b1"
+      - "b2"
 
 script:
   - echo "test"
