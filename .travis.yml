@@ -2,21 +2,5 @@ language: minimal
 
 dist: focal
 
-env:
-  global:
-    - GLOBAL_ENV=33
-    - GLOBAL_ENV_2=22
-
-envs:
-  - XXX=1
-    X2=3
-  - YYY=2
-    Y2=4
-
-jobs:
-  include:
-    - env: ["AAAA BBB CCC", "XXXX"]
-    - env: "DDDD EEE FFF"
-
 script:
-  - echo "${ARGS}"
+  - gcc --verrsion
