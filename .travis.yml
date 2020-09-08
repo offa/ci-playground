@@ -5,3 +5,4 @@ dist: focal
 script:
   - gcc --version
   - wget --version
+  - cmake --version
