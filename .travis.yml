@@ -3,4 +3,4 @@ language: minimal
 dist: focal
 
 script:
-  - gcc --verrsion
+  - gcc --version
