@@ -2,6 +2,15 @@ language: minimal
 
 dist: focal
 
+jobs:
+  include:
+    - env: COMPILER=gcc-10
+      script:
+        - echo "AAAAAAAAAAA"
+    - env: COMPILER=gcc-9
+      script:
+        - echo "BBBBBBBBBBB"
+
 script:
   - pip install -U --user conan
   - gcc --version
