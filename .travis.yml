@@ -3,6 +3,7 @@ language: minimal
 dist: focal
 
 script:
+  - pip install -U --user conan
   - gcc --version
   - wget --version
   - cmake --version
