@@ -7,18 +7,9 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        config:
-          - { name: "GCC 9", cc: "gcc-9", cxx: "g++-9" }
-          - { name: "GCC 8", cc: "gcc-8", cxx: "g++-8" }
-          - { name: "Clang 9", cc: "clang-9", cxx: "clang++-9" }
-          - { name: "Clang 8", cc: "clang-8", cxx: "clang++-8" }
-    name: ${{ matrix.config.name }}
+        compiler: [gcc-9, gcc-8]
+    name: ${{ matrix.compiler }}
     steps:
       - uses: actions/checkout@master
       - run: |
-         export CC=${{ matrix.config.cc }}
-         export CXX=${{ matrix.config.cxx }}
-         $CC --version
-         $CXX --version
-         ls -l /usr/bin/gcc*
-         ls -l /usr/bin/clang*
+        echo {{ martrix.compiler }}
