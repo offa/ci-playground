@@ -7,12 +7,15 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        compiler: [
-          gcc-9,
-          gcc-8
-        ]
+        compiler:
+          - gcc-9,
+          - gcc-8
+        boost:
+          - true
+          - false
+
     name: ${{ matrix.compiler }}
     steps:
       - uses: actions/checkout@master
-      - run: |
-        echo {{ martrix.compiler }}
+      - name: Build
+        run: echo {{ martrix.compiler }}
