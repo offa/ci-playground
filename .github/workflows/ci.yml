@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build
-        run: cmake --version && echo "${BOOST_ROOT_1_72_0}"
+        run: mkdir build && cd build && cmake ..
