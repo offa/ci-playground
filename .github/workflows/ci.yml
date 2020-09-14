@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         compiler:
-          - gcc-9,
+          - gcc-9
           - gcc-8
         boost:
           - true
