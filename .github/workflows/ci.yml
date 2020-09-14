@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         compiler:
@@ -13,9 +13,12 @@ jobs:
         boost:
           - true
           - false
+    container:
+      image: "registry.gitlab.com/offa/plug/docker-images/{{ matrix.compiler }}:stable"
 
-    name: ${{ matrix.compiler }}
+
+    name: ${{ matrix.compiler }} (Boost: {{ matrix.boost }})
     steps:
       - uses: actions/checkout@master
       - name: Build
-        run: echo {{ martrix.compiler }}
+        run: echo $CXX
