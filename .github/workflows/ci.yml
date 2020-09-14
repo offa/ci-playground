@@ -17,7 +17,7 @@ jobs:
       image: "registry.gitlab.com/offa/plug/docker-images/{{ matrix.compiler }}:stable"
 
 
-    name: ${{ matrix.compiler }} (Boost: {{ matrix.boost }})
+    name: ${{ matrix.compiler }} (Boost: ${{ matrix.boost }})
     steps:
       - uses: actions/checkout@master
       - name: Build
