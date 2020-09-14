@@ -9,9 +9,7 @@ jobs:
       matrix:
         compiler:
           - msvc
-    container:
-      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
-    name: "${{ matrix.compiler }} (Boost: ${{ matrix.boost }})"
+    name: "${{ matrix.compiler }}"
     steps:
       - uses: actions/checkout@master
       - name: Build
