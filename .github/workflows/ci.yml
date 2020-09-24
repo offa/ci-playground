@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Install clang
         run: |
-          add-apt-repository ppa:ubuntu-toolchain-r/test
-          curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add
-          add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-${{ matrix.version }} main"
-          apt-get update
-          apt-get install -y --no-install-recommends clang-${{ matrix.version }}
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+          curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add
+          sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-${{ matrix.version }} main"
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends clang-${{ matrix.version }}
       - name: Install libc++
-        run: apt-get install -y --no-install-recommends libc++-${{ matrix.version }}-dev libc++abi-${{ matrix.version }}-dev
+        run: sudo apt-get install -y --no-install-recommends libc++-${{ matrix.version }}-dev libc++abi-${{ matrix.version }}-dev
