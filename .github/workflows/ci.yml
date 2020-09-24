@@ -8,10 +8,10 @@ jobs:
     strategy:
       matrix:
         version:
-          #- 7
-          #- 8
-          - 9
-          - 10
+          - 7
+          - 8
+          #- 9
+          #- 10
     name: "${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master
@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test
           curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add
-          sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-${{ matrix.version }} main"
+          sudo add-apt-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-${{ matrix.version }} main"
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends clang-${{ matrix.version }}
       - name: Install libc++
