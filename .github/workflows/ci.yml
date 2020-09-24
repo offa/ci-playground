@@ -9,6 +9,9 @@ jobs:
       matrix:
         version:
           - 7
+          - 8
+          - 9
+          - 10
     name: "${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master
