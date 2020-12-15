@@ -16,5 +16,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Test
         run: |
+          ls -l /opt/arm-none-eabi
           arm-none-eabi-gcc --version
           arm-none-eabi-g++ --version
