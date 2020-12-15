@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        version:
-          - 10
+        compiler:
+          - arm-none-eabi-gcc-10
     container:
       image: "registry.gitlab.com/offa/docker-images-ci/dist-stm32/${{ matrix.compiler }}:latest"
     name: "${{ matrix.version }}"
