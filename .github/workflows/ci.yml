@@ -20,6 +20,3 @@ jobs:
       - name: Install
         run: |
           sudo ./ci_install_clang.sh ${{ matrix.version }}
-      - name: Test
-        run: |
-          clang-${{ matrix.version }} --version

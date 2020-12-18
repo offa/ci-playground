@@ -16,3 +16,5 @@ else
 fi
 
 apt-get install -y clang-${VERSION}
+
+clang-${VERSION} --version
