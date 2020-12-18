@@ -11,7 +11,7 @@ jobs:
           - 6
           - 5
     container:
-      image: gcc-${{ matrix.version }}
+      image: gcc:${{ matrix.version }}
     name: "Test ${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master
