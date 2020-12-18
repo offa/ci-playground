@@ -11,4 +11,4 @@ jobs:
       - name: Test
         run: |
           VERSION=8
-          apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
+          sudo apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
