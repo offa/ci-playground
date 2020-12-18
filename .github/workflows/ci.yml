@@ -9,7 +9,7 @@ jobs:
       matrix:
         version:
           - 6
-          #- 5
+          - 5
     name: "Test ${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master
@@ -18,4 +18,5 @@ jobs:
           echo "deb http://archive.ubuntu.com/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/bionic_main.list
           echo "deb http://archive.ubuntu.com/ubuntu bionic universe" | sudo tee /etc/apt/sources.list.d/bionic_universe.list
           sudo apt-get update
-          sudo apt-get install -y gcc-6
+          sudo apt-get install -y gcc-${{ matrix.version }}
+          gcc-${{ matrix.version }} --version
