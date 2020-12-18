@@ -9,9 +9,9 @@ jobs:
       matrix:
         version:
           - 11
-          - 10
-          - 9
-          - 8
+          #- 10
+          #- 9
+          #- 8
           - 7
           - 6
     name: "Test ${{ matrix.version }}"

@@ -10,6 +10,9 @@ fi
 
 if [[ "${VERSION}" -le "6" ]]; then
     VERSION="${VERSION}.0"
+    apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
+else
+    apt-get install -y libc++-dev libc++abi-dev
 fi
 
-apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
+apt-get install -y clang-${VERSION}
