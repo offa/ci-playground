@@ -5,11 +5,18 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        version:
+          - 11
+          - 10
+          - 9
+          - 8
+          - 7
     name: "Test"
     steps:
       - uses: actions/checkout@master
       - name: Test
         run: |
-          VERSION=8
-          sudo apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
-          clang-8 --version
+          sudo ./ci_install_clang.sh ${{ matrix.version }}
+          clang-${{ matrix.version }} --version
