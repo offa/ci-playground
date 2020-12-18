@@ -13,11 +13,13 @@ jobs:
           - 9
           - 8
           - 7
-          - 6.0
-    name: "Test"
+          - '6.0'
+    name: "Test ${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master
-      - name: Test
+      - name: Install
         run: |
           sudo ./ci_install_clang.sh ${{ matrix.version }}
+      - name: Test
+        run: |
           clang-${{ matrix.version }} --version
