@@ -12,3 +12,4 @@ jobs:
         run: |
           VERSION=8
           sudo apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
+          clang-8 --version
