@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Test
         run: |
-          sudo apt-get install -y cmake
+          apt-get install -y cmake
           gcc --version
           cmake --version
           #echo "deb http://archive.ubuntu.com/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/bionic_main.list
