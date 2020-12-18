@@ -10,6 +10,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Test
         run: |
-          sudo add-apt-repository universe
-          sudo apt-get update
-          sudo apt-get install gcc-6
+          VERSION=8
+          apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
