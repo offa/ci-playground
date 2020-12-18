@@ -13,7 +13,7 @@ jobs:
           - 9
           - 8
           - 7
-          - '6.0'
+          - 6
     name: "Test ${{ matrix.version }}"
     steps:
       - uses: actions/checkout@master

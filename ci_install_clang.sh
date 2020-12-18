@@ -8,4 +8,8 @@ if [[ "${VERSION}" -ge "9" ]]; then
     apt update
 fi
 
+if [[ "${VERSION}" -le "6" ]]; then
+    VERSION="${VERSION}.0"
+fi
+
 apt-get install -y clang-${VERSION} libc++-${VERSION}-dev libc++abi-${VERSION}-dev
