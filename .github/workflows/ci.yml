@@ -10,6 +10,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Test
         run: |
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+          sudo add-apt-repository universe
           sudo apt-get update
           sudo apt-get install gcc-6
