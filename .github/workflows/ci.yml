@@ -27,5 +27,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Test
         run: |
-          python --version
-          python3 --version
+          pip --version
+          pip3 --version
