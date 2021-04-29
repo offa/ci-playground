@@ -8,6 +8,10 @@ jobs:
     strategy:
       matrix:
         version:
+          - 7
+          - 8
+          - 9
+          - 10
           - 11
     name: "Test ${{ matrix.version }}"
     steps:
