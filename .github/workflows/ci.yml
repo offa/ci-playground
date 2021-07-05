@@ -18,6 +18,10 @@ jobs:
       - name: Install Conan
         id: conan
         uses: turtlebrowser/get-conan@main
+      - name: Test
+        run: |
+          export
+          python --version
       - name: Build
         run: conan install .
 
