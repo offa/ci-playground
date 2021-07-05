@@ -15,13 +15,13 @@ jobs:
     name: "${{ matrix.compiler }}"
     steps:
       - uses: actions/checkout@master
-      - name: Install Conan
-        id: conan
-        uses: turtlebrowser/get-conan@main
       - name: Test
         run: |
           export
           python --version
+      - name: Install Conan
+        id: conan
+        uses: turtlebrowser/get-conan@main
       - name: Build
         run: conan install .
 
