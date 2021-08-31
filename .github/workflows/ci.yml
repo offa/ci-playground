@@ -14,7 +14,7 @@ jobs:
       image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
     name: "${{ matrix.compiler }}"
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Test
         run: |
           export
@@ -34,11 +34,11 @@ jobs:
           - msvc
     name: "${{ matrix.compiler }}"
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Setup Ninja
-        uses: seanmiddleditch/gha-setup-ninja@master
+        uses: seanmiddleditch/gha-setup-ninja@main
       - name: Setup MSVC
-        uses: seanmiddleditch/gha-setup-vsdevenv@master
+        uses: seanmiddleditch/gha-setup-vsdevenv@main
       - name: Install Conan
         id: conan
         uses: turtlebrowser/get-conan@main
