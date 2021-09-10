@@ -4,12 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build_linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         compiler:
           - gcc-11
-          - clang-12
     container:
       image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
     name: "${{ matrix.compiler }}"
@@ -17,30 +16,4 @@ jobs:
       - uses: actions/checkout@main
       - name: Test
         run: |
-          export
-          python --version
-      - name: Install Conan
-        id: conan
-        uses: turtlebrowser/get-conan@main
-      - name: Build
-        run: conan install .
-
-
-  build_windows:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        compiler:
-          - msvc
-    name: "${{ matrix.compiler }}"
-    steps:
-      - uses: actions/checkout@main
-      - name: Setup Ninja
-        uses: seanmiddleditch/gha-setup-ninja@main
-      - name: Setup MSVC
-        uses: seanmiddleditch/gha-setup-vsdevenv@main
-      - name: Install Conan
-        id: conan
-        uses: turtlebrowser/get-conan@main
-      - name: Build
-        run: conan install .
+          apt-cache show libboost-dev
