@@ -7,14 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        compiler:
-          - gcc-11
-    container:
-      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
-    name: "${{ matrix.compiler }}"
+        value_name:
+          - 'VALUE'
+    name: "${{ matrix.value_name }}"
     steps:
       - uses: actions/checkout@main
       - name: Test
         env:
-          TEST_KEY: ${{ format('TEST_{0}', 'VALUE') }}
+          TEST_KEY: ${{ ${{ format('TEST_{0}', 'VALUE') }} }}
         run: echo "<<<${TEST_KEY}>>>"
