@@ -15,5 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Test
-        run: |
-          apt-cache show libboost-dev
+        env:
+          TEST_KEY: ${{ format('TEST_{0}', 'VALUE') }}
+        run: echo "<<<${{ TEST_KEY }}>>>"
