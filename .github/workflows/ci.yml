@@ -14,5 +14,5 @@ jobs:
       - uses: actions/checkout@main
       - name: Test
         env:
-          TEST_KEY: ${{ ${{ format('TEST_{0}', 'VALUE') }} }}
+          TEST_KEY: ${{ secrets[format('TEST_{0}', 'VALUE')] }}
         run: echo "<<<${TEST_KEY}>>>"
