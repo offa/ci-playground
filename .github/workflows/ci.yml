@@ -20,5 +20,5 @@ jobs:
       - name: Test
         run: java -version
       - name: Test
-        run: echo "<${GITHUB_SHA}> <${GITHUB_REF}>"
+        run: echo "<${GITHUB_SHA}> <${GITHUB_REF#refs/heads/}>"
 
