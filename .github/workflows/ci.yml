@@ -19,3 +19,6 @@ jobs:
           distribution: 'adopt'
       - name: Test
         run: java -version
+      - name: Test
+        run: echo "<${GITHUB_SHA}> <${GITHUB_REF}>"
+
