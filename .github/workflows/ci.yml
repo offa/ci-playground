@@ -13,5 +13,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
       - name: Test
-        run: echo "<${{ github.ref == 'refs/heads/main' }}>"
+        run: echo "<${{ github.ref == 'refs/heads/master' }}>"
 
