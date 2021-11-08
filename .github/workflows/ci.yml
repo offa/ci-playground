@@ -12,13 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
-      - name: Setup jdk-${{ matrix.java }}
-        uses: actions/setup-java@main
-        with:
-          java-version: ${{ matrix.java }}
-          distribution: 'adopt'
       - name: Test
-        run: java -version
-      - name: Test
-        run: echo "<${GITHUB_SHA}> <${GITHUB_REF#refs/heads/}>"
+        run: echo "<${{ github.ref == 'refs/heads/main' }}>"
 
