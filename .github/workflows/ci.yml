@@ -10,18 +10,11 @@ jobs:
         python-version: ['3.9', '3.10']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@main
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@main
       with:
         python-version: ${{ matrix.python-version }}
     - name: Test
       run: |
-        echo $0
-        ps  -ef | grep $$ | grep -v grep
-      shell: bash
-
-    - name: Test2
-      run: |
-        echo $0
-        ps  -ef | grep $$ | grep -v grep
+        file /lib/x86_64-linux-gnu/libSegFault.so
