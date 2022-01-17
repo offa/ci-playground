@@ -8,20 +8,10 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.9', '3.10']
+    container:
+      image: ghcr.io/jhnc-oss/images/python:${{ matrix.python-version }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@main        
     - name: Test
-      run: |
-        echo $0
-        ps  -ef | grep $$ | grep -v grep
-      shell: bash
-
-    - name: Test2
-      run: |
-        echo $0
-        ps  -ef | grep $$ | grep -v grep
+      run: python --version
