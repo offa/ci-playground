@@ -10,7 +10,6 @@ jobs:
         python-version: ['3.7', '3.8', '3.9', '3.10']
     container:
       image: ghcr.io/jhnc-oss/images/python:${{ matrix.python-version }}
-
     steps:
     - uses: actions/checkout@main        
     - name: Test
