@@ -16,3 +16,4 @@ jobs:
       run: |
         python --version
         python -c "import platform; print(platform.python_version())"
+        podman inspect ghcr.io/jhnc-oss/images/python:${{ matrix.python-version }}
