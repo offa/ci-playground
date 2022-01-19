@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@main        
     - name: Test
-      run: python --version
+      run: |
+        python --version
+        python -c "import platform; print(platform.python_version())"
