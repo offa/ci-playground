@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.10']
     container:
-      image: ghcr.io/jhnc-oss/images/python:${{ matrix.python-version }}
+      image: python:${{ matrix.python-version }}
     steps:
     - uses: actions/checkout@main        
     - name: Test
       run: |
         python --version
-        python -c "import platform; print(platform.python_version())"
-        podman inspect ghcr.io/jhnc-oss/images/python:${{ matrix.python-version }}
+        echo "---"
+        whoami
+        echo "---"
+        pwd
+        echo "---"
+        id
