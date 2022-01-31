@@ -1,9 +1,0 @@
-[requires]
-yaml-cpp/0.6.3
-argparse/2.1
-catch2/2.13.6
-trompeloeil/41
-
-[generators]
-cmake_find_package
-cmake_paths
