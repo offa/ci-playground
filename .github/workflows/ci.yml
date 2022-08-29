@@ -7,11 +7,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@main
-      - name: Setup Ninja
-        uses: seanmiddleditch/gha-setup-ninja@master
-      - name: Setup MSVC
-        uses: seanmiddleditch/gha-setup-vsdevenv@master
-      - name: Install dependencies
+      - name: Test
         run: |
-          pip install -U conan
-          conan install catch2/3.1.0@ --build=missing
+          python --version
