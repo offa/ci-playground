@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@main
       - run: echo "<<<${RUNNER_OS}>>>"
 
-  build_win:
+  build_osx:
     runs-on: macOs-latest
     steps:
       - uses: actions/checkout@main
