@@ -3,11 +3,20 @@ name: ci
 on: [push, pull_request]
 
 jobs:
-  build:
-    runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
+  build_linux:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - run: pacman --version
+      - run: echo "<<<${RUNNER_OS}>>>"
+
+  build_win:
+    runs-on: macOs-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: echo "<<<${RUNNER_OS}>>>"
+
+  build_win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: echo "<<<${RUNNER_OS}>>>"
