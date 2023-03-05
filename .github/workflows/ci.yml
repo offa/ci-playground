@@ -5,8 +5,9 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: windows-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.version }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@main
       - run: pacman --version
