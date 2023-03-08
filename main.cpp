@@ -39,10 +39,10 @@ void fn(FieldValue fv)
     std::cout << fv.index() << ": " << convert.str() << "\n";
 }
 
-// void fn(const char* str)
-// {
-//     fn(std::string{str});
-// }
+void fn(const char* str)
+{
+    fn(std::string{str});
+}
 
 int main()
 {
