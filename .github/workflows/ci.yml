@@ -5,19 +5,22 @@ on: [push, pull_request]
 jobs:
   build_linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - gcc-12
+          - clang-15
+    container:
+      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
     steps:
       - uses: actions/checkout@main
-      - run: |
-          echo "<<<${RUNNER_OS}>>>"
-          pip3 --version
+      - run: ./build.sh
 
   build_osx:
     runs-on: macOs-latest
     steps:
       - uses: actions/checkout@main
-      - run: |
-          echo "<<<${RUNNER_OS}>>>"
-          pip3 --version
+      - run: ./build.sh
 
   build_win:
     runs-on: windows-latest
@@ -26,6 +29,8 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@main
-      - run: |
-          echo "<<<${RUNNER_OS}>>>"
-          pip3 --version
+      - name: Setup Ninja
+        uses: turtlesec-no/get-ninja@main
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+      - run: ./build.sh -G Ninja
