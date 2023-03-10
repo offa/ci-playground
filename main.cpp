@@ -39,7 +39,7 @@ void fn(FieldValue fv)
     std::cout << fv.index() << ": " << convert.str() << "\n";
 }
 
-template<class T, class U = std::enable_if_t<std::is_same_v<T, const char*>, int>>
+template<class T, class = std::enable_if_t<std::is_same_v<T, const char*>, int>>
 void fn(T str)
 {
     fn(std::string{str});
