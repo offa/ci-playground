@@ -39,6 +39,7 @@ void fn(FieldValue fv)
     std::cout << fv.index() << ": " << convert.str() << "\n";
 }
 
+template<class T>
 void fn(const char* str)
 {
     fn(std::string{str});
@@ -53,6 +54,7 @@ int main()
     fn(3.123);
     fn("def");
     fn(true);
+    fn(0);
 
     std::cout << "\n-------------\n";
 
