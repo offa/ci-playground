@@ -10,4 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: gcc --version
+      - run: uname -a
+      - run: cat /etc/lsb-release
 
