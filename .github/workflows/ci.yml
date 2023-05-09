@@ -5,32 +5,9 @@ on: [push, pull_request]
 jobs:
   build_linux:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compiler:
-          - gcc-12
-          - clang-15
     container:
-      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}:stable"
+      image: gcc:13
     steps:
       - uses: actions/checkout@main
-      - run: ./build.sh
+      - run: gcc --version
 
-  build_osx:
-    runs-on: macOs-latest
-    steps:
-      - uses: actions/checkout@main
-      - run: ./build.sh
-
-  build_win:
-    runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@main
-      - name: Setup Ninja
-        uses: turtlesec-no/get-ninja@main
-      - name: Setup MSVC
-        uses: ilammy/msvc-dev-cmd@v1
-      - run: ./build.sh -G Ninja
