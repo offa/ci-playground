@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@main
       - run: gcc --version
       - run: uname -a
-      - run: lsb_release -a
+      - run: cat /etc/os-release
 
