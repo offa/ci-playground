@@ -10,5 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: gcc-12 --version
+      - run: ls -la /
       - run: apt-get update
 
