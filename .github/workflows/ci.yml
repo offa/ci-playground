@@ -6,10 +6,8 @@ jobs:
   build_linux:
     runs-on: ubuntu-latest
     container:
-      image: gcc:13
+      image: "registry.gitlab.com/offa/docker-images/gcc:12"
     steps:
       - uses: actions/checkout@main
-      - run: gcc --version
-      - run: uname -a
-      - run: cat /etc/os-release
+      - run: gcc-12 --version
 
