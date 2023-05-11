@@ -6,10 +6,9 @@ jobs:
   build_linux:
     runs-on: ubuntu-latest
     container:
-      image: "registry.gitlab.com/offa/docker-images/gcc:12"
+      image: "registry.gitlab.com/offa/docker-images/clang:12"
     steps:
       - uses: actions/checkout@main
-      - run: gcc-12 --version
-      - run: ls -la /
-      - run: apt-get update
+      - run: ${CXX} --version
+      - run: echo "<<<${llvmver}>>>"
 
