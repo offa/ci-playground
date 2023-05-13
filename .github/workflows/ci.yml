@@ -21,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: ls -la /usr/bin
+      - run: ls -la /usr/lib/
       - run: echo "<<< $CC -- $CXX >>>"
       - run: $CC --version
 
