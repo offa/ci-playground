@@ -5,10 +5,21 @@ on: [push, pull_request]
 jobs:
   build_linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler:
+          - gcc:12
+          - gcc:11
+          - gcc:10
+          - clang:16
+          - clang:15
+          - clang:14
+          - clang:13
     container:
-      image: "registry.gitlab.com/offa/docker-images/clang:12"
+      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}"
+    name: "${{ matrix.compiler }}"
     steps:
       - uses: actions/checkout@main
-      - run: ${CXX} --version
-      - run: echo "<<<${llvmver}>>>"
+      - name: Build
+        run: echo "<<< $CC :: $CXX >>>"
 
