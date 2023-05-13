@@ -20,6 +20,6 @@ jobs:
     name: "${{ matrix.compiler }}"
     steps:
       - uses: actions/checkout@main
-      - name: Build
-        run: echo "<<< $CC -- $CXX >>>"
+      - run: echo "<<< $CC -- $CXX >>>"
+      - run: $CC --version
 
