@@ -2,18 +2,18 @@ name: ci
 
 on:
   push:
-    branches: [master]
-
-permissions:
-  contents: write
 
 jobs:
   build_linux:
     runs-on: ubuntu-latest
-    name: "Sync test"
+    strategy:
+      matrix:
+        img:
+          - docker.io/fedora:39
+          - docker.io/archlinux
+          - docker.io/ubuntu:22.04
+          - docker.io/debian:debian:bookworm
+    name: "Test"
     steps:
-      - uses: jojomatik/sync-branch@v1
-        with:
-          source: "master"
-          target: "to_sync"
-          strategy: "fail"
+      - name: Test
+        run: cat /etc/security/faillock.conf | grep "deny =" 
