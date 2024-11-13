@@ -5,6 +5,7 @@ mkdir build
 cd build
 
 cmake ..
-make -j
+cmake --build . -j
+
 ls -la
 ./x
