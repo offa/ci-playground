@@ -15,3 +15,10 @@
 
         sessionMock.testFn();
     }
+
+
+    TEST_CASE("Test not OK", "[Test]")
+    {
+        SessionMock sessionMock;
+        REQUIRE_CALL(sessionMock, testFn());
+    }
