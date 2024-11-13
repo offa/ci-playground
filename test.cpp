@@ -5,6 +5,7 @@
     {
     public:
         MAKE_MOCK0(testFn, void(void));
+        MAKE_MOCK0(testFn2, void(int));
     };
 
 
@@ -16,9 +17,22 @@
         sessionMock.testFn();
     }
 
-
     TEST_CASE("Test not OK", "[Test]")
     {
         SessionMock sessionMock;
         REQUIRE_CALL(sessionMock, testFn());
+    }
+
+    TEST_CASE("Test not OK 2", "[Test]")
+    {
+        SessionMock sessionMock;
+        REQUIRE_CALL(sessionMock, testFn2(5));
+        sesssionMock.testFn2(7);
+    }
+
+    TEST_CASE("Test not OK 3", "[Test]")
+    {
+        SessionMock sessionMock;
+        REQUIRE_CALL(sessionMock, testFn2(5));
+        sesssionMock.testFn();
     }
