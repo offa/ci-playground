@@ -9,11 +9,14 @@ permissions:
 
 jobs:
   build_linux:
-    runs-on: ubuntu-latest
-    name: "Sync test"
+    runs-on: windows-latest
+    name: "Test"
     steps:
-      - uses: jojomatik/sync-branch@v1
-        with:
-          source: "master"
-          target: "to_sync"
-          strategy: "fail"
+      - uses: actions/checkout@main
+      - name: Setup Ninja
+        uses: turtlesec-no/get-ninja@main
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+      - name: Build
+        run: setup.sh
+        shell: bash
