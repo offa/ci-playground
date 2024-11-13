@@ -20,3 +20,6 @@ jobs:
       - name: Build
         run: ./setup.sh
         shell: bash
+      - name: Build
+        run: ./test.sh
+        shell: bash
