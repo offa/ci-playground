@@ -27,12 +27,19 @@
     {
         SessionMock sessionMock;
         REQUIRE_CALL(sessionMock, testFn2(5));
-        sessionMock.testFn2(7);
+        sessionMock.testFn2(5);
     }
 
     TEST_CASE("Test not OK 3", "[Test]")
     {
         SessionMock sessionMock;
         REQUIRE_CALL(sessionMock, testFn2(5));
+        sessionMock.testFn2(5);
+    }
+
+    TEST_CASE("Test OK 2", "[Test]")
+    {
+        SessionMock sessionMock;
+        REQUIRE_CALL(sessionMock, testFn2(_)).WITH(_1 == 3);
         sessionMock.testFn();
     }
