@@ -7,5 +7,4 @@ cd build
 cmake ..
 cmake --build . -j
 
-ls -la
-./x
+./Debug/x
