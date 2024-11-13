@@ -45,3 +45,9 @@ TEST_CASE("Test OK 2", "[Test]")
     REQUIRE_CALL(sessionMock, testFn2(_)).WITH(_1 == 3);
     sessionMock.testFn2(5);
 }
+
+TEST_CASE("Test forbidden", "[Test]")
+{
+    SessionMock sessionMock;
+    sessionMock.testFn2(7);
+}
