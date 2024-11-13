@@ -17,7 +17,7 @@ jobs:
         uses: turtlesec-no/get-ninja@main
       - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
-      - name: Build
+      - name: Setup
         run: ./setup.sh
         shell: bash
       - name: Build
