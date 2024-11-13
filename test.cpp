@@ -43,11 +43,29 @@ TEST_CASE("Test OK 2", "[Test]")
 {
     SessionMock sessionMock;
     REQUIRE_CALL(sessionMock, testFn2(_)).WITH(_1 == 3);
-    sessionMock.testFn2(5);
+    sessionMock.testFn2(3);
 }
 
 TEST_CASE("Test forbidden", "[Test]")
 {
     SessionMock sessionMock;
     sessionMock.testFn2(7);
+}
+
+TEST_CASE("Test not called", "[Test]")
+{
+    SessionMock sessionMock;
+    sessionMock.testFn2(7);
+}
+
+
+TEST_CASE("Test n call", "[Test]")
+{
+    SessionMock sessionMock;
+    REQUIRE_CALL(sessionMock, testFn());
+
+    sessionMock.testFn();
+    sessionMock.testFn();
+    sessionMock.testFn();
+    sessionMock.testFn();
 }
