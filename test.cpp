@@ -5,7 +5,7 @@
     {
     public:
         MAKE_MOCK0(testFn, void(void));
-        MAKE_MOCK0(testFn2, void(int));
+        MAKE_MOCK1(testFn2, void(int));
     };
 
 
