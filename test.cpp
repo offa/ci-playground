@@ -41,5 +41,5 @@
     {
         SessionMock sessionMock;
         REQUIRE_CALL(sessionMock, testFn2(_)).WITH(_1 == 3);
-        sessionMock.testFn();
+        sessionMock.testFn2(5);
     }
