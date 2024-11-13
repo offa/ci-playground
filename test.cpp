@@ -15,6 +15,7 @@ TEST_CASE("Test OK", "[Test]")
 {
     SessionMock sessionMock;
     REQUIRE_CALL(sessionMock, testFn());
+    ALLOW_CALL(sessionMock, testFn2(_));
 
     sessionMock.testFn();
 }
@@ -62,10 +63,13 @@ TEST_CASE("Test not called", "[Test]")
 TEST_CASE("Test n call", "[Test]")
 {
     SessionMock sessionMock;
-    ALLOW_CALL(sessionMock, testFn());
+    REQUIRE_CALL(sessionMock, testFn()).TIMES(3);
+    ALLOW_CALL(sessionMock, testFn2(_));
 
     sessionMock.testFn();
     sessionMock.testFn();
     sessionMock.testFn();
     sessionMock.testFn();
+
+    sessionMock.testFn2(3);
 }
