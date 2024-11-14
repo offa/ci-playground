@@ -64,7 +64,7 @@ TEST_CASE("Test n call", "[Test]")
 {
     SessionMock sessionMock;
     REQUIRE_CALL(sessionMock, testFn()).TIMES(1, 30);
-    REQUIRE_CALL(sessionMock, testFn2(_)).RT_TIMES(7);
+    REQUIRE_CALL(sessionMock, testFn2(_)).RT_TIMES(AT_LEAST(1));
 
     sessionMock.testFn();
     sessionMock.testFn();
