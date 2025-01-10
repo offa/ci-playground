@@ -2,18 +2,18 @@ name: ci
 
 on:
   push:
-    branches: [master]
-
-permissions:
-  contents: write
 
 jobs:
-  build_linux:
+  build:
     runs-on: ubuntu-latest
-    name: "Sync test"
+    name: "Build"
     steps:
-      - uses: jojomatik/sync-branch@v1
+      - uses: actions/checkout@main
+      - uses: actions/setup-python@main
         with:
-          source: "master"
-          target: "to_sync"
-          strategy: "fail"
+          python-version: '3.13'
+          cache: 'pip'
+      - name: Setup
+        run: pip install -r requirements.txt
+      - name: oelint-adv
+        run: fd --version
