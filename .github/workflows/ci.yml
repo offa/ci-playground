@@ -17,5 +17,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: oelint-adv
         run: |
-          apt-get install -y fd-find
+          sudo apt-get install -y fd-find
           fd --version
