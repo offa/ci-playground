@@ -16,4 +16,6 @@ jobs:
       - name: Setup
         run: pip install -r requirements.txt
       - name: oelint-adv
-        run: fd --version
+        run: |
+          apt-get install -y fd-find
+          fd --version
