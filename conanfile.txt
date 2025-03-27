@@ -7,3 +7,4 @@ CMakeToolchain
 
 [options]
 boost/*:without_python=False
+boost/*:without_numpy=True
