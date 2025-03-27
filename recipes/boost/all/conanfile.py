@@ -1927,6 +1927,8 @@ class BoostConan(ConanFile):
             def filter_transform_module_libraries(names):
                 libs = []
                 for name in names:
+                    if name.startswith("boost_numpy"):
+                        continue
                     if name in ("boost_stacktrace_windbg", "boost_stacktrace_windbg_cached") and self.settings.os != "Windows":
                         continue
                     if name in ("boost_math_c99l", "boost_math_tr1l") and str(self.settings.arch).startswith("ppc"):
@@ -2046,7 +2048,7 @@ class BoostConan(ConanFile):
                 if not self._shared:
                     self.cpp_info.components["python"].defines.append("BOOST_PYTHON_STATIC_LIB")
 
-                self.cpp_info.components[f"numpy{pyversion.major}{pyversion.minor}"].requires = ["numpy"]
+                # self.cpp_info.components[f"numpy{pyversion.major}{pyversion.minor}"].requires = ["numpy"]
 
             if not self.options.get_safe("without_process"):
                 if self.settings.os == "Windows":
