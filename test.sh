@@ -7,4 +7,4 @@ conan profile detect
 echo "tools.cmake.cmaketoolchain:generator=Ninja" >> ~/.conan2/global.conf
 
 
-conan install --build=missing --output-folder=_dist .
+conan create --build=missing --version=1.84.0 recipes/boost/all
