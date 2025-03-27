@@ -19,4 +19,4 @@ jobs:
           python-version: "3.13" 
       - name: Build
         run: ./test.sh
-
+        shell: bash
