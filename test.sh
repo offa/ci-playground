@@ -1,10 +1,5 @@
 #!/bin/bash
 
+python --version
 
-mkdir build
-cd build
-
-cmake ..
-cmake --build . -j
-
-./Debug/x
+pip install -U conan

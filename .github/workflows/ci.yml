@@ -4,9 +4,6 @@ on:
   push:
     branches:
 
-permissions:
-  contents: write
-
 jobs:
   build_linux:
     runs-on: windows-latest
@@ -17,9 +14,9 @@ jobs:
         uses: turtlesec-no/get-ninja@main
       - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
-      - name: Setup
-        run: ./setup.sh
-        shell: bash
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13" 
       - name: Build
         run: ./test.sh
-        shell: bash
+
