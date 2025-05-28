@@ -7,6 +7,7 @@ python --version
 pip install -U conan
 conan profile detect
 echo "tools.cmake.cmaketoolchain:generator=Ninja" >> ~/.conan2/global.conf
+sed -i 's/compiler.cppstd=14/compiler.cppstd=20/' ~/.conan2/profiles/default
 
 conan install --build=missing . -of __dist
 
