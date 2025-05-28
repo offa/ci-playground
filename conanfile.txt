@@ -1,10 +1,29 @@
 [requires]
-boost/1.84.0
+qt/6.8.3
 
 [generators]
 CMakeDeps
 CMakeToolchain
 
 [options]
-boost/*:without_python=False
-boost/*:without_numpy=True
+qt/*:qtactiveqt=True
+qt/*:qt5compat=True
+qt/*:qtconnectivity=True
+qt/*:qtdeclarative=True
+qt/*:qtimageformats=True
+qt/*:qtlocation=True
+qt/*:qtmultimedia=True
+qt/*:qtscxml=True
+qt/*:qtsensors=True
+qt/*:qtserialbus=True
+qt/*:qtserialport=True
+qt/*:qtshadertools=True
+qt/*:qtspeech=True
+qt/*:qtsvg=True
+qt/*:qttools=True
+qt/*:qttranslations=True
+qt/*:qtwebchannel=True
+qt/*:qtwebengine=True
+qt/*:qtwebsockets=True
+qt/*:qtwebview=True
+qt/*:shared=True
