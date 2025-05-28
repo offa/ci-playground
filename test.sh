@@ -4,7 +4,7 @@ set -ex
 
 python --version
 
-pip install -U conan
+pip install -U conan html5lib
 conan profile detect
 echo "tools.cmake.cmaketoolchain:generator=Ninja" >> ~/.conan2/global.conf
 sed -i 's/compiler.cppstd=14/compiler.cppstd=20/' ~/.conan2/profiles/default
