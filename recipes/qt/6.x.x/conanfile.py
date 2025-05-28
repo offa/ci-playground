@@ -81,7 +81,7 @@ class QtConan(ConanFile):
     options.update({f"{status}_modules": [True, False] for status in _module_statuses})
 
     # this significantly speeds up windows builds
-    no_copy_source = True
+    no_copy_source = False
 
     default_options = {
         "shared": False,
@@ -332,6 +332,8 @@ class QtConan(ConanFile):
 
     def layout(self):
         cmake_layout(self, src_folder="src")
+        if self.settings.os == "Windows" and self.options.get_safe("qtwebengine", False):
+            self.folders.build = "b"
 
     def requirements(self):
         self.requires("zlib/[>=1.2.11 <2]")
