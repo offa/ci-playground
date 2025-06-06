@@ -8,8 +8,8 @@ export CONAN_HOME="/c/b"
 
 pip install -U conan html5lib
 conan profile detect
-echo "tools.cmake.cmaketoolchain:generator=Ninja" >> ~/.conan2/global.conf
-sed -i 's/compiler.cppstd=14/compiler.cppstd=20/' ~/.conan2/profiles/default
+echo "tools.cmake.cmaketoolchain:generator=Ninja" >> "${CONAN_HOME}"/global.conf
+sed -i 's/compiler.cppstd=14/compiler.cppstd=20/' "${CONAN_HOME}"/profiles/default
 
 # conan install --build=missing . -of __dist
 
