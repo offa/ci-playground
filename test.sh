@@ -4,6 +4,8 @@ set -ex
 
 python --version
 
+export CONAN_HOME="/c/b"
+
 pip install -U conan html5lib
 conan profile detect
 echo "tools.cmake.cmaketoolchain:generator=Ninja" >> ~/.conan2/global.conf
