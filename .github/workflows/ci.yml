@@ -4,18 +4,28 @@ on:
   push:
 
 jobs:
-  build:
+  build_linux:
     runs-on: ubuntu-latest
-    name: "Build"
+    strategy:
+      matrix:
+        compiler:
+          - gcc:15
+          - gcc:14
+          - gcc:13
+          - gcc:12
+          - gcc:11
+          - clang:22
+          - clang:21
+          - clang:20
+          - clang:19
+          - clang:18
+          - clang:17
+          - clang:16
+          - clang:15
+    container:
+      image: "registry.gitlab.com/offa/docker-images/${{ matrix.compiler }}"
+    name: "${{ matrix.compiler }}"
     steps:
       - uses: actions/checkout@main
-      - uses: actions/setup-python@main
-        with:
-          python-version: '3.13'
-          cache: 'pip'
-      - name: Setup
-        run: pip install -r requirements.txt
-      - name: oelint-adv
-        run: |
-          sudo apt-get install -y fd-find
-          fdfind --version
+      - name: Build
+        run: ./test.sh
