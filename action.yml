@@ -17,11 +17,10 @@ runs:
       run: |
         apt-get update
         apt-get install -y pipx
-        # echo "$HOME/.local/bin" >> "$GITHUB_PATH"
         echo "==="
         echo "$PATH"
         echo "==="
-        pipx ensurepath
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
         echo "==="
         echo "$PATH"
         echo "==="
