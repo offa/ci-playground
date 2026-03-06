@@ -26,3 +26,4 @@ runs:
         echo "---"
         ls -la
         echo "---"
+      shell: bash
