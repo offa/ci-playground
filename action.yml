@@ -18,11 +18,8 @@ runs:
         apt-get update
         apt-get install -y pipx
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-        echo "==="
-        echo "$GITHUB_PATH"
-        echo "==="
         pipx install conan
-        conan profile detect
+        "$HOME/.local/bin/conan" profile detect
       shell: bash
     - name: 'Test'
       run: |
