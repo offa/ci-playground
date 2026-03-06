@@ -17,8 +17,8 @@ runs:
       run: |
         apt-get update
         apt-get install -y pipx
-        pipx install conan
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        pipx install conan
         conan profile detect
       shell: bash
     - name: 'Test'
