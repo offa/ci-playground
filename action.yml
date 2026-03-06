@@ -23,8 +23,7 @@ runs:
       shell: bash
     - name: 'Test'
       run: |
-        pwd
         echo "---"
-        ls -la
+        ls -la "${GITHUB_ACTION_PATH}"
         echo "---"
       shell: bash
