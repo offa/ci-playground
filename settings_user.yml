@@ -2,4 +2,4 @@ compiler:
     gcc:
         version: ["13", "14", "15"]
     clang:
-        version: ["18", "19", "20", "21"]
+        version: ["18", "19", "20", "21", "22"]
