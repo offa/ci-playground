@@ -1,29 +1,18 @@
-name: 'Conan Test'
-description: 'Test only'
-author: 'offa'
+name: "Conan Test"
+description: "Test only"
+author: "offa"
 branding:
-  icon: 'check-circle'
-  color: 'green'
-
-inputs:
-  conan-version:
-    description: 'The Conan version use'
-    required: false
+  icon: "check-circle"
+  color: "green"
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
-    - name: 'Setup Conan'
+    - name: "Setup Conan"
       run: |
         apt-get update
         apt-get install -y pipx
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
         pipx install conan
         "$HOME/.local/bin/conan" profile detect
-      shell: bash
-    - name: 'Test'
-      run: |
-        echo "---"
-        ls -la "${GITHUB_ACTION_PATH}"
-        echo "---"
       shell: bash
