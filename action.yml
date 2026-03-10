@@ -13,6 +13,7 @@ runs:
         apt-get update
         apt-get install -y pipx
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        export PATH="${HOME}/.local/bin:${PATH}"
         pipx install conan
-        "$HOME/.local/bin/conan" profile detect
+        conan profile detect
       shell: bash
