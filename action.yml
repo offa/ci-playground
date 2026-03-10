@@ -15,5 +15,6 @@ runs:
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
         export PATH="${HOME}/.local/bin:${PATH}"
         pipx install conan
+        conan config install "${GITHUB_ACTION_PATH}/settings_user.yml"
         conan profile detect
       shell: bash
