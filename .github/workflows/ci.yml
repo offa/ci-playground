@@ -32,4 +32,4 @@ jobs:
       - uses: actions/checkout@main
       - uses: offa/conan-action@b8e0a7119ebc3655d47130251e75c206aba96145
       - name: Build
-        run: test.sh
+        run: ./test.sh
